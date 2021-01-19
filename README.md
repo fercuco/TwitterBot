@@ -1,2 +1,2 @@
 # TwitterBot
-Doing stuff with tweepy
+Twitter Bot that retreives tweets from a timeline.
