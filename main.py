@@ -1,10 +1,10 @@
 import tweepy
 import datetime
 import csv #Import csv
-consumer_key = "Zy7tYTqhVngGuXxkgC53iI2w5"
-consumer_secret = "g9vzRxEXF7D4qysyW04dezaoekoSN39uDk2azUd4OwzCGCfap1"
-access_token = "558375309-jDdxqGmsEaiIPnFUdeakXvx7tEM3IxS3TYnCApA2"
-access_token_secret = "Ic8lqKTXxGswJ1mZZmubV1fBFgPvmrTgo28nTnU2VlKIB"
+consumer_key = "##############################"
+consumer_secret = "g#############################################"
+access_token = "##############################################"
+access_token_secret = "###########################################"
 
 # Creating the authentication object
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -33,7 +33,7 @@ def printTweets():
             if endDate > tweet.created_at > startDate:
                 if (not tweet.retweeted) and ('RT @' not in tweet.text):
                     tweets.append(tweet)
-
+# Retrieves tweets from a timeline and writes them to file
 def get_user_timeline_tweets():
     f = open(username + ".txt", "w")
     for tweet in tweepy.Cursor(api.user_timeline, id=username).items(3200):
@@ -43,7 +43,7 @@ def get_user_timeline_tweets():
         url = f"https://twitter.com/{username}/status/{tweet.id}"
         dt = tweet.created_at
         f.write(dt.strftime("%B %d, %Y") + " " + tweet.text + "[ " + url + " ]" '\n')
-
+# Ranks users by # of likes (TODO: ...)
 def rankPeople():
     people = []
     for x in range(0, 3):
